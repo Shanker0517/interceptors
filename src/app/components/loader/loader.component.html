@@ -1,0 +1,10 @@
+<!-- <div *ngIf="loading$ | async" class="loading-overlay">
+  <div class="spinner"></div>
+</div> -->
+<!-- @if (loading$) { -->
+  @if (loadingService.loading$|async; as loading) {
+    <div class="loading-overlay"></div>
+    <div class="spinner"></div>
+    <button (click)="stopLoader()" class="stop-button">Stop</button>
+  }
+<!-- } -->
