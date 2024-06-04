@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideHttpClient(withInterceptors([loaderInterceptor]), withFetch()),
-    importProvidersFrom(NgxSpinnerModule.forRoot({ type: 'ball-spin-clockwise' })),
-    provideAnimations()
-  ]
+    // importProvidersFrom(NgxSpinnerModule.forRoot({ type: 'ball-spin-clockwise' })),
+    provideAnimations(),
+  ],
 };

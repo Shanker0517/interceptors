@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PostService } from './service/posts/post.service';
@@ -13,25 +13,19 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./app.component.scss'],
   providers: [PostService],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'interceptors';
 
-  constructor(private postService: PostService) {
-    this.postService
-      .getPosts()
-      .pipe(delay(5000))
-      .subscribe((postData) => {
-        console.log(postData);
-      });
+  constructor(private postService: PostService) {}
+  ngAfterViewInit(): void {
+    this.getData();
   }
   getData() {
-    // this.spinner.show();
     this.postService
       .getPosts()
       .pipe(delay(5000))
       .subscribe((postData) => {
         console.log(postData);
-        // this.spinner.hide();
       });
   }
 }
