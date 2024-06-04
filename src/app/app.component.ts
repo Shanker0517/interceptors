@@ -16,9 +16,7 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 export class AppComponent {
   title = 'interceptors';
 
-  constructor(private postService: PostService) {
-    this.getData();
-  }
+  constructor(private postService: PostService) {}
   getData() {
     this.postService.getPosts().subscribe((postData) => {
       console.log(postData);
