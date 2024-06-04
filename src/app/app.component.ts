@@ -21,11 +21,8 @@ export class AppComponent implements AfterViewInit {
     this.getData();
   }
   getData() {
-    this.postService
-      .getPosts()
-      .pipe(delay(5000))
-      .subscribe((postData) => {
-        console.log(postData);
-      });
+    this.postService.getPosts().subscribe((postData) => {
+      console.log(postData);
+    });
   }
 }
