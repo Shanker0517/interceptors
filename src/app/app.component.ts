@@ -13,11 +13,10 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./app.component.scss'],
   providers: [PostService],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   title = 'interceptors';
 
-  constructor(private postService: PostService) {}
-  ngAfterViewInit(): void {
+  constructor(private postService: PostService) {
     this.getData();
   }
   getData() {
