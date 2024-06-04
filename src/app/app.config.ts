@@ -8,18 +8,16 @@ import {
   withFetch,
   withInterceptors,
 } from '@angular/common/http';
-import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { loaderInterceptor } from './interceptor/loader.interceptor';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideClientHydration(),
     provideHttpClient(withInterceptors([loaderInterceptor]), withFetch()),
-    importProvidersFrom(
-      NgxSpinnerModule.forRoot({ type: 'ball-spin-clockwise' })
-    ),
-    provideAnimations(),
-  ],
+    importProvidersFrom(NgxSpinnerModule.forRoot({ type: 'ball-spin-clockwise' })),
+    provideAnimations()
+  ]
 };

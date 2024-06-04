@@ -10,24 +10,23 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
   standalone: true,
   imports: [CommonModule, RouterOutlet, NgxSpinnerModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  providers: [PostService, NgxSpinnerService],
+  styleUrls: ['./app.component.scss'],
+  providers: [PostService],
 })
 export class AppComponent {
   title = 'interceptors';
-  constructor(
-    private postservice: PostService // private spinner: NgxSpinnerService
-  ) {
-    // this.postservice
-    //   .getPosts()
-    //   .pipe(delay(5000))
-    //   .subscribe((postData) => {
-    //     console.log(postData);
-    //   });
+
+  constructor(private postService: PostService) {
+    this.postService
+      .getPosts()
+      .pipe(delay(5000))
+      .subscribe((postData) => {
+        console.log(postData);
+      });
   }
-  getdata() {
+  getData() {
     // this.spinner.show();
-    this.postservice
+    this.postService
       .getPosts()
       .pipe(delay(5000))
       .subscribe((postData) => {
